@@ -4,22 +4,24 @@ var app = new Vue ({
     el: '#root',
     data: {
         stanze: [],
-        stanza: []
+        stanzaInfo: null
     },
     mounted() {
         axios.get('http://localhost:8888/db-hotel/stanze.php')
         .then((response) => {
             this.stanze = response.data.response;
-            // console.log(response.data.response);
-            console.log(this.stanze);
+            console.log(response.data.response);
         });
     },
     methods: {
         details: function (id) {
-            axios.get('http://localhost:8888/db-hotel/stanze.php?='+id)
+            axios.get('http://localhost:8888/db-hotel/stanze.php?id='+id)
             .then((response) => {
-                this.stanza = response.data.response;
+                this.stanzaInfo = response.data.response[0];
             });
+        },
+        clear: function () {
+            this.stanzaInfo = null;
         }
     }
 });

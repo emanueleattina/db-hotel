@@ -30,7 +30,7 @@
 
         if($rows && $rows->num_rows > 0) {
             while($row = $rows->fetch_assoc()) {
-                $result = $row;
+                $result[] = $row;
             }
         }
         echo json_encode([

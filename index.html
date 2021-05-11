@@ -22,6 +22,22 @@
                 </tr>
             </tbody>
         </table>
+
+        <div v-if="stanzaInfo != null">
+            <div>
+                <strong> ID </strong> <span> {{ stanzaInfo.id }} </span>
+            </div>
+            <div>
+                <strong> Room Number </strong> <span> {{ stanzaInfo.room_number }} </span>
+            </div>
+            <div>
+                <strong> Floor </strong> <span> {{ stanzaInfo.floor }} </span>
+            </div>
+            <div>
+                <strong> Beds </strong> <span> {{ stanzaInfo.beds }} </span>
+            </div>
+            <button @click="clear">Clear</button>
+        </div>
     </div>
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
